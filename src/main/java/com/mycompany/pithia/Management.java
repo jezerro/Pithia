@@ -1104,6 +1104,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_acceptGradeChangeActionPerformed
 
+    //anazitisi fitoith
     private void searchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStudentActionPerformed
 
         searchModel.clear();
@@ -1120,6 +1121,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchStudentActionPerformed
 
+    //reset tis anazitiseis
     private void resetStudentSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetStudentSearchActionPerformed
         loadStudents();
     }//GEN-LAST:event_resetStudentSearchActionPerformed
