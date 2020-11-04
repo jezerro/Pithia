@@ -456,9 +456,11 @@ public class Students extends javax.swing.JFrame {
         
         pastStatementsCoursesModel.clear();
         
-        //
-        for(int i = 0; i < statements.size(); i++){                
-            pastStatementsCoursesModel.addElement(statements.get(index).get("course" + Integer.toString(i) + "ID") + " - " + statements.get(index).get("course" + Integer.toString(i))); 
+        int x = 0;
+        
+        while(statements.get(index).get("course" + x + "ID") != null){                
+            pastStatementsCoursesModel.addElement(statements.get(index).get("course" + index + "ID") + " - " + statements.get(index).get("course" + index)); 
+            x++;
         }
         
         statementsList = new JList(pastStatementsModel);
