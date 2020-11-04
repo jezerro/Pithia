@@ -395,7 +395,7 @@ public class Students extends javax.swing.JFrame {
     //stelneis ethma
     private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
         
-        BasicDBObject request = new BasicDBObject("topic", topicsList.getSelectedValue().toString()).append("notes", notes.getText()).append("student", email).append("studentFullname", fullName).append("date", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")).append("completed", "no");
+        BasicDBObject request = new BasicDBObject("topic", topicsList.getSelectedValue().toString()).append("notes", notes.getText()).append("student", email).append("studentFullname", fullName).append("date", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")).append("completed", "pending");
         func.collection.insert(request);
 
     }//GEN-LAST:event_sendActionPerformed
