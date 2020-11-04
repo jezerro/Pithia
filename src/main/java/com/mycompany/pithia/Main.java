@@ -320,14 +320,13 @@ public class Main extends javax.swing.JFrame {
                     
                     if(loginSpecialty.getSelectedItem().toString().equals("Students")){
                         new Students(func.cursor.next().get("email").toString(), func.cursor.next().get("fullName").toString(), func.cursor.next().get("username").toString(), func.cursor.next().get("password").toString()).setVisible(true);
-                        this.dispose();
                     }else if(loginSpecialty.getSelectedItem().toString().equals("Professors")){
                         new Professors(func.cursor.next().get("email").toString(), func.cursor.next().get("fullName").toString(), func.cursor.next().get("username").toString(), func.cursor.next().get("password").toString()).setVisible(true);
-                        this.dispose();                
                     }else if(loginSpecialty.getSelectedItem().toString().equals("Management")){
                         new Management(func.cursor.next().get("email").toString(), func.cursor.next().get("fullName").toString(), func.cursor.next().get("username").toString(), func.cursor.next().get("password").toString()).setVisible(true);
-                        this.dispose();
                     }
+                    
+                    this.dispose();                    
                     
                 }else{
                     JOptionPane.showMessageDialog(null, "Λάθος κωδικός", "Προσοχή", JOptionPane.INFORMATION_MESSAGE);
