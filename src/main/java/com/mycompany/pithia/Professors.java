@@ -244,6 +244,7 @@ public class Professors extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_theoryGradeMouseClicked
 
+    //pernei tous palious vathmoys kai tous kainourgious kai tous stelnei se pianak sthn gramateia na tous elenxei
     private void updateGradesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGradesActionPerformed
         BasicDBObject gradeUpdate = new BasicDBObject("professor", email).append("student", students.get(studentsList.getSelectedIndex()).get("email")).append("course", courses.get(coursesList.getSelectedIndex()).get("id")).append("theoryOld", grades.get(studentsList.getSelectedIndex()).get("theory").toString()).append("theoryNew", theoryGrade.getText()).append("labOld", grades.get(studentsList.getSelectedIndex()).get("lab").toString()).append("labNew", labGrade.getText()).append("tasksNew", grades.get(studentsList.getSelectedIndex()).get("tasks").toString()).append("finalOld", finalGrade.getText()).append("finalNew", grades.get(studentsList.getSelectedIndex()).get("final").toString()).append("date", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
         func.collection = func.db.getCollection("GradeChanges");
@@ -276,7 +277,7 @@ public class Professors extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_labGradeMouseClicked
 
-    
+    //fortwnei ta mathimata pou kanei o kathigitis
     void loadCourses(){
         
         func.cursor = func.getValues("Courses", "professor", email);        
@@ -291,6 +292,7 @@ public class Professors extends javax.swing.JFrame {
         
     }
     
+    //pioi fitities piran to kathe mathima
     void loadStudents(String course){
         
         studentsModel.clear();
@@ -311,6 +313,7 @@ public class Professors extends javax.swing.JFrame {
         func.cursor = func.getArrayValues("Grades", "student", student);
         grades = func.cursor.toArray();
 
+        //fortwnei vathmou --> an den exei vathmo na paei parakatw
         for(int i = 0; i < func.cursor.length(); i++){   
             
             if(grades.get(i).get("name").toString().equals(courses.get(coursesList.getSelectedIndex()).get("name").toString())){
