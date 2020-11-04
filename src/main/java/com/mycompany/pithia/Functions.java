@@ -11,7 +11,7 @@ public class Functions {
 
     DB db;
     MongoClient mongoClient;
-    MongoClientURI uri = new MongoClientURI("mongodb://mongo:password@pithia-shard-00-00.jepfn.gcp.mongodb.net:27017,pithia-shard-00-01.jepfn.gcp.mongodb.net:27017,pithia-shard-00-02.jepfn.gcp.mongodb.net:27017/Pithia?ssl=true&replicaSet=atlas-12saty-shard-0&authSource=admin&w=majority");
+    MongoClientURI uri = new MongoClientURI("mongodb://mongo:logismiko@pithia-shard-00-00.jepfn.gcp.mongodb.net:27017,pithia-shard-00-01.jepfn.gcp.mongodb.net:27017,pithia-shard-00-02.jepfn.gcp.mongodb.net:27017/Pithia?ssl=true&replicaSet=atlas-12saty-shard-0&authSource=admin&w=majority");
     DBCursor cursor;
     BasicDBObject query;
     DBCollection collection;
