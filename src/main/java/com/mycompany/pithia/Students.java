@@ -394,6 +394,7 @@ public class Students extends javax.swing.JFrame {
 
     }//GEN-LAST:event_sendActionPerformed
     
+    //fortwnei ta mathimata kai tis vathmologies se mia lista
     void loadCourses(){
         
         func.cursor = func.getValues("Courses", "semester", semesterCourses.getSelectedItem().toString());
@@ -414,7 +415,7 @@ public class Students extends javax.swing.JFrame {
 
     }
     
-    
+    //katevazei ta etimata tou fititi kai ean exoun ikanopioithei apo thn gramatia ta vazei stis listes
     void loadRequests(){
         
         func.cursor = func.getValues("Requests", "student", email);
@@ -430,12 +431,12 @@ public class Students extends javax.swing.JFrame {
             
         }
         
-        cRequestsList = new JList(cRequestsModel);
-        pRequestsList = new JList(pRequestsModel);
+        cRequestsList = new JList(cRequestsModel); //lista me etimata pou exei kanei i gramatia
+        pRequestsList = new JList(pRequestsModel); //lista me etimata pou den exei dei i gramatia
 
     }
     
-    
+    //fortonei dilwseis mathimatwn
     void loadStatements(){
         
         func.cursor = func.getValues("Statements", "student", email);
