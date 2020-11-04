@@ -13,10 +13,10 @@ import javax.swing.UIManager;
 public class Main extends javax.swing.JFrame {
 
     Functions func = new Functions();
-    Random rd = new Random();
+    Random rd = new Random(); //tyxaio id
     
     public Main() {        
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());        
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //allazei tin emfanisi tou programmatos (den peirazoume)
         initComponents();                   
     }
 
@@ -244,6 +244,7 @@ public class Main extends javax.swing.JFrame {
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         
+        //an den exeis simplirwsei ola ta pedia se kanei spam
         if(fullName.getText().isEmpty() || email.getText().isEmpty() || registerUsername.getText().isEmpty() || registerPassword.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Παρακαλούμε συμπληρώστε όλα τα πεδία", "Προσοχή", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -268,6 +269,7 @@ public class Main extends javax.swing.JFrame {
             
             BasicDBObject person = new BasicDBObject("id", rd.nextInt()).append("fullName", fullName.getText()).append("email", email.getText()).append("username", registerUsername.getText()).append("password", registerPassword.getText());
             
+            //otan dialegeis ti eisai sthn egrafi kollaei tis 2 katw times an eisai fititis
             if(registerSpecialty.getSelectedItem().toString().equals("Students")){
 
                 person.append("currentSemester", "Εξάμηνο Α");
@@ -287,13 +289,14 @@ public class Main extends javax.swing.JFrame {
                 
             }
             
-            
+            //to onoma sto combo box einai kai to onoma tou pinaka
             func.collection = func.db.getCollection(registerSpecialty.getSelectedItem().toString());
             func.collection.insert(person);
             
+            //analogos ti eisai sou anoigei parathiro
             if(registerSpecialty.getSelectedItem().toString().equals("Students")){
-                new Students(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true);
-                this.dispose();
+                new Students(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true); //anoigei parathiro
+                this.dispose(); //kleinei parathiro
             }else if(registerSpecialty.getSelectedItem().toString().equals("Professors")){
                 new Professors(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true);
                 this.dispose();                
