@@ -296,14 +296,13 @@ public class Main extends javax.swing.JFrame {
             //analogos ti eisai sou anoigei parathiro
             if(registerSpecialty.getSelectedItem().toString().equals("Students")){
                 new Students(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true); //anoigei parathiro
-                this.dispose(); //kleinei parathiro
             }else if(registerSpecialty.getSelectedItem().toString().equals("Professors")){
                 new Professors(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true);
-                this.dispose();                
             }else if(registerSpecialty.getSelectedItem().toString().equals("Management")){
                 new Management(email.getText(), fullName.getText(), registerUsername.getText(), registerPassword.getText()).setVisible(true);
-                this.dispose();
             }
+            
+            this.dispose(); //kleinei parathiro
             
         }
         
