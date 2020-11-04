@@ -12,7 +12,7 @@ public class Functions {
     DB db;
     MongoClient mongoClient;
     MongoClientURI uri = new MongoClientURI("mongodb://mongo:logismiko@pithia-shard-00-00.jepfn.gcp.mongodb.net:27017,pithia-shard-00-01.jepfn.gcp.mongodb.net:27017,pithia-shard-00-02.jepfn.gcp.mongodb.net:27017/Pithia?ssl=true&replicaSet=atlas-12saty-shard-0&authSource=admin&w=majority");
-    DBCursor cursor;
+    DBCursor cursor; ////metavliti pou apothikeei apotelesma query
     BasicDBObject query;
     DBCollection collection;
     
@@ -48,38 +48,38 @@ public class Functions {
     }
     
     
-    public String getValue(String coll, String field, String queryValue, String returnField){
+    public String getValue(String coll, String field, String value){
+        //dinei se pio pinaka thes, epustrefei valuepinaka sto adistiho field
                 
         collection = db.getCollection(coll);  
-        query = new BasicDBObject(field, new BasicDBObject("$eq", queryValue));
+        query = new BasicDBObject(field, new BasicDBObject("$eq", value)); //eq = equal
         cursor = collection.find(query);
         
-        return cursor.next().get(returnField).toString();           
-        
+        return cursor.next().get(field).toString();           
     }
     
-    
     public DBCursor getValues(String coll, String field, String value){
+        // -//- alla gyrnaeo olo to document
         
         collection = db.getCollection(coll);  
         query = new BasicDBObject(field, new BasicDBObject("$eq", value));
         cursor = collection.find(query);
         
         return cursor;
-
     }
     
     public DBCursor getArrayValues(String coll, String field, String value){
+         // -//- alla gyrnaeo ola ta document me to cursor
         
         collection = db.getCollection(coll);  
         query = new BasicDBObject(field, new BasicDBObject("$elemMatch", value));
         cursor = collection.find(query);
         
         return cursor;
-
     }
     
     public void updateValue(String coll, String queryField, String queryValue, String field, String value){
+        //diorthwseis sta pedia
         
         BasicDBObject searchQuery = new BasicDBObject();
         searchQuery.append(queryField, queryValue);
@@ -87,26 +87,24 @@ public class Functions {
         BasicDBObject updateQuery = new BasicDBObject();
         updateQuery.append("$set", new BasicDBObject().append(field, value));
     
-        db.getCollection(coll).update(searchQuery, updateQuery);
-                
+        db.getCollection(coll).update(searchQuery, updateQuery); 
     }
     
     public void addField(String coll, String documentID, String newField, String fieldValue){
+        //prosthetei pedio
         
         BasicDBObject update = new BasicDBObject();
         update.put("$set", new BasicDBObject(documentID, new BasicDBObject(newField, fieldValue)));
 
         db.getCollection("customerCollection").update(query, update);
-                
     }
     
     public void removeField(String coll, String documentID, String field){
+        //aferei pedio
         
         BasicDBObject update = new BasicDBObject();
         update.put("$unset", new BasicDBObject(documentID, new BasicDBObject(field, null)));
 
-        db.getCollection("customerCollection").update(query, update);
-                
+        db.getCollection("customerCollection").update(query, update);    
     }
-    
 }
