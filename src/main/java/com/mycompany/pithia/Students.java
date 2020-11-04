@@ -348,14 +348,17 @@ public class Students extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //emfanizei t mathimata 6minou pou thes
     private void semesterCoursesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_semesterCoursesItemStateChanged
         loadCourses();
     }//GEN-LAST:event_semesterCoursesItemStateChanged
 
+    //epilegesi dilwsh emfanizei mathima ta tis
     private void statementsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_statementsListValueChanged
         loadStatementCourses(statementsList.getSelectedIndex());
     }//GEN-LAST:event_statementsListValueChanged
 
+    //upologizei ta parakatw otan prostheteis kainourgio amthima stin dilwsei
     private void addCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCourseActionPerformed
         
         if(!currentStatementModel.contains(declerativeCourses.getSelectedItem()) && (getPassed() * 6 < 160 && currentStatementModel.size() < 7) || (getPassed() * 6 >= 160 && currentStatementModel.size() < 9)){
@@ -367,6 +370,7 @@ public class Students extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addCourseActionPerformed
 
+    //kanei ayta pou exeis epilexei sthn kai ta kanei dilwsh
     private void saveStatementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStatementActionPerformed
         
         BasicDBObject statement = new BasicDBObject("student", email).append("date", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
@@ -382,11 +386,13 @@ public class Students extends javax.swing.JFrame {
         
     }//GEN-LAST:event_saveStatementActionPerformed
 
+    //afereis mathima apo tin dilwsh
     private void removeCourse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCourse1ActionPerformed
         currentStatementModel.remove(declerativeCourses.getSelectedIndex());
         selectedCourses = new JList(currentStatementModel);
     }//GEN-LAST:event_removeCourse1ActionPerformed
 
+    //stelneis ethma
     private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
         
         BasicDBObject request = new BasicDBObject("topic", topicsList.getSelectedValue().toString()).append("notes", notes.getText()).append("student", email).append("studentFullname", fullName).append("date", DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")).append("completed", "no");
@@ -467,7 +473,7 @@ public class Students extends javax.swing.JFrame {
         
     }
     
-        
+    //epistrefei amthimata pou mporoun na dilothoun kai ta vazei sto combo box    
     void loadAvailableCourses(){
         
         func.cursor = func.getValues("Courses", "statable", "yes");
@@ -489,7 +495,7 @@ public class Students extends javax.swing.JFrame {
         
     }
     
-    
+    //epistrefei perasmena mathimata
     int getPassed(){
         
         int passed = 0;
