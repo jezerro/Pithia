@@ -45,8 +45,10 @@ public class Management extends javax.swing.JFrame {
         func.cursor = func.collection.find();   
         gradeChanges = func.cursor.toArray();
         
-        for(int i = 0; i < func.cursor.length(); i++){            
-            gradeChangesModel.addElement(gradeChanges.get(i).get("id").toString() + " - " + gradeChanges.get(i).get("name").toString() + " (" + gradeChanges.get(i).get("theoryOld").toString() + "/" + gradeChanges.get(i).get("labOld").toString() + "/" + gradeChanges.get(i).get("tasksOld").toString() + "/" + gradeChanges.get(i).get("finalOld").toString() + " -> " + gradeChanges.get(i).get("theoryNew").toString() + "/" + gradeChanges.get(i).get("labNew").toString() + "/" + gradeChanges.get(i).get("tasksNew").toString() + "/" + gradeChanges.get(i).get("finalNew").toString());                                        
+        for(int i = 0; i < func.cursor.length(); i++){     
+            if(gradeChanges.get(i).get("completed").toString().equals("pending")){
+                gradeChangesModel.addElement(gradeChanges.get(i).get("id").toString() + " - " + gradeChanges.get(i).get("name").toString() + " (" + gradeChanges.get(i).get("theoryOld").toString() + "/" + gradeChanges.get(i).get("labOld").toString() + "/" + gradeChanges.get(i).get("tasksOld").toString() + "/" + gradeChanges.get(i).get("finalOld").toString() + " -> " + gradeChanges.get(i).get("theoryNew").toString() + "/" + gradeChanges.get(i).get("labNew").toString() + "/" + gradeChanges.get(i).get("tasksNew").toString() + "/" + gradeChanges.get(i).get("finalNew").toString());                                        
+            }
         }
         
         gradeChangeList = new JList(gradeChangesModel);
@@ -117,7 +119,7 @@ public class Management extends javax.swing.JFrame {
         requests = func.cursor.toArray();
         
         for(int i = 0; i < func.cursor.length(); i++){     
-            if(requests.get(i).get("completed").toString().equals("no")){
+            if(requests.get(i).get("completed").toString().equals("pending")){
                 requestsModel.addElement(requests.get(i).get("studentFullName").toString() + " - " + requests.get(i).get("studentID").toString() + " - " + requests.get(i).get("topic").toString() + " - " + requests.get(i).get("date").toString());                          
             }
         }
@@ -957,7 +959,7 @@ public class Management extends javax.swing.JFrame {
                 //send mail
             }
             
-            func.updateValue("Requests", "student", requests.get(requestsList.getSelectedIndex()).get("student").toString(), "completed", "ÿes");
+            func.updateValue("Requests", "student", requests.get(requestsList.getSelectedIndex()).get("student").toString(), "completed", "yes");
 
         }else{
          
@@ -1091,7 +1093,7 @@ public class Management extends javax.swing.JFrame {
             func.updateValue("Grades", "email", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("student").toString(), "tasks", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("tasksNew").toString());
             func.updateValue("Grades", "email", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("student").toString(), "final", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("finalNew").toString());
             
-            func.updateValue("GradeChanges", "student", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("student").toString(), "completed", "ÿes");
+            func.updateValue("GradeChanges", "student", gradeChanges.get(gradeChangeList.getSelectedIndex()).get("student").toString(), "completed", "yes");
 
         }else{
          
