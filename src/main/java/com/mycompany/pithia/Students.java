@@ -452,10 +452,11 @@ public class Students extends javax.swing.JFrame {
     }
     
     
-    void loadStatementCourses(int index){
+    void loadStatementCourses(int index){ //i dieythinsi ths dilwshs ston pinaka dilwsewn
         
         pastStatementsCoursesModel.clear();
         
+        //
         for(int i = 0; i < statements.size(); i++){                
             pastStatementsCoursesModel.addElement(statements.get(index).get("course" + Integer.toString(i) + "ID") + " - " + statements.get(index).get("course" + Integer.toString(i))); 
         }
