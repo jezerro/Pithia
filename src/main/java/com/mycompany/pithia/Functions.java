@@ -48,13 +48,13 @@ public class Functions {
     }
     
     
-    public String getValue(String coll, String field, String value){
+    public String getValue(String coll, String field, String queryValue, String returnField){
                 
         collection = db.getCollection(coll);  
-        query = new BasicDBObject(field, new BasicDBObject("$eq", value));
+        query = new BasicDBObject(field, new BasicDBObject("$eq", queryValue));
         cursor = collection.find(query);
         
-        return cursor.next().get(field).toString();           
+        return cursor.next().get(returnField).toString();           
         
     }
     
