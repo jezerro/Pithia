@@ -29,6 +29,7 @@ public class Management extends javax.swing.JFrame {
         
         managementName.setText(fullName);
         
+        //fortonei ta pada
         loadGradeChanges();
         loadCourses();
         loadStudents();
@@ -920,6 +921,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_professorsListValueChanged
 
+    //emfanizei dilwsei fitoitwn
     private void statementsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_statementsListValueChanged
         
         statementDate.setText(students.get(statementsList.getSelectedIndex()).get("date").toString());
@@ -942,6 +944,7 @@ public class Management extends javax.swing.JFrame {
         requestNotes.setText(requests.get(requestsList.getSelectedIndex()).get("notes").toString());        
     }//GEN-LAST:event_requestsListValueChanged
 
+    //epilegei i gramateia an tha apodexthei to etima h to aporipsei
     private void applyRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyRequestActionPerformed
         
         if(rejectAcceptRequests.getSelectedItem().toString().equals("Αποδοχή")){
@@ -965,6 +968,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_applyRequestActionPerformed
 
+    //enimerwnei oles tis times sthn vasi dedomenwn otan epexergazete
     private void saveCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCoursesActionPerformed
         
         func.updateValue("Courses", "id", courseID.getText(), "id", courseID.getText());
@@ -995,6 +999,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_updateProfessorActionPerformed
 
+    //text box anazitisis fitih h kathigith
     private void searchProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProfessorActionPerformed
         
         searchModel.clear();
@@ -1025,6 +1030,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchStatementActionPerformed
 
+    //otan vazeis ena mathima mesa se dilwsh fitoith
     private void addCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCourseActionPerformed
                        
         if(!statementCoursesModel.contains(coursesCombobox.getSelectedItem())){            
@@ -1049,6 +1055,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addCourseActionPerformed
 
+    //aferei mathima
     private void removeCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCourseActionPerformed
         
         String course[] = coursesCombobox.getSelectedItem().toString().split(" - ");
@@ -1074,6 +1081,7 @@ public class Management extends javax.swing.JFrame {
         
     }//GEN-LAST:event_removeCourseActionPerformed
 
+    //aporiptei i dexete allagei vathmologias apo kathigiti
     private void acceptGradeChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptGradeChangeActionPerformed
         
         if(rejectAcceptGradeChanges.getSelectedItem().toString().equals("Αποδοχή")){
