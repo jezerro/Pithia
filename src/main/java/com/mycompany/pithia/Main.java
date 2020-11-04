@@ -310,6 +310,7 @@ public class Main extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         
+        //vlepei ti exeis sumplirwsei sto login gia na se valei
         if(loginUsername.getText().isEmpty() || loginPassword.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Παρακαλούμε συμπληρώστε όλα τα πεδία", "Προσοχή", JOptionPane.INFORMATION_MESSAGE);
         }else{
