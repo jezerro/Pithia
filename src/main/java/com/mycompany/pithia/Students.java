@@ -431,7 +431,7 @@ public class Students extends javax.swing.JFrame {
             
             if(requests.get(i).get("completed").toString().equals("yes")){
                 cRequestsModel.addElement(requests.get(i).get("name").toString() + " - " + requests.get(i).get("dateRequested").toString());
-            }else{
+            }else if(requests.get(i).get("completed").toString().equals("pending")){
                 pRequestsModel.addElement(requests.get(i).get("name").toString() + " - " + requests.get(i).get("dateRequested").toString());
             }
             
